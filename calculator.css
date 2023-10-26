@@ -18,6 +18,7 @@
     width:320px;
     height: 40px;
     background-color: beige;
+    text-align: right;
 }
 .row{
     margin-left: 40px;
