@@ -2,39 +2,39 @@ let displayValue = '';
 let resultShown = false;
 function screenDisplay(value) {
     const display = document.getElementById("screen");
-    const length=displayValue.length - 1;
+    const length = displayValue.length - 1;
     const lastChar = displayValue.charAt(displayValue.length - 1);
     if (resultShown){
         if (value === '+' || value === '-' || value === '*' || value === '/') {
-            display.value=displayValue;                                                
+            display.value = displayValue;                                                
             resultShown = false;
         } else {
             resultShown = false;
             clearDisplay();
         }  
     }
-    if (displayValue==="Cannot divide by zero") {
+    if (displayValue === "Cannot divide by zero") {
         clearDisplay();
     }
     if (displayValue === '' && (value === '+' || value === '-' || value === '*' || value === '/')) {
         return; // Prevent operators when the screen is empty
     }
-    if (value==='.' && displayValue.toString().includes(".")){
-        let count=0;
-        for (let i=length;i>=0;i--){
-            if (displayValue.charAt(i)==='.'){
+    if (value === '.' && displayValue.toString().includes(".")){
+        let count = 0;
+        for (let i = length;i >= 0;i--){
+            if (displayValue.charAt(i) === '.'){
                 return;
             }
-            else if(displayValue.charAt(i)==='+'||displayValue.charAt(i)==='-'||displayValue.charAt(i)==='*'||displayValue.charAt(i)==='/'){
-                    count=0;
+            else if(displayValue.charAt(i) === '+'||displayValue.charAt(i) === '-'||displayValue.charAt(i) === '*'||displayValue.charAt(i) === '/'){
+                    count = 0;
                     displayValue += value;
                     display.value = displayValue;
                 }
             else{
-                count+=1;
+                count += 1;
             }           
         }
-        if(count!==0){
+        if(count !== 0){
             return;
         }
     }
@@ -42,7 +42,7 @@ function screenDisplay(value) {
         const result = eval(displayValue);
         const fixedResult = parseFloat(result.toFixed(10));
         if (result === Infinity) {
-            displayValue="Cannot divide by zero";
+            displayValue = "Cannot divide by zero";
             display.value = displayValue;
         }
         else{
@@ -78,16 +78,16 @@ function calculateResult() {              //to calculate result.
     const result = eval(displayValue);
     const fixedResult = parseFloat(result.toFixed(10));
     if (result === Infinity) {
-        displayValue="Cannot divide by zero";
+        displayValue = "Cannot divide by zero";
         display.value = displayValue;
     }else{
         display.value = fixedResult;
         displayValue = fixedResult.toString();
-        resultShown=true;
+        resultShown = true;
     } 
 }
 
 function deleteDisplay() {       //to delete last entered
     displayValue=displayValue.toString().slice(0,-1)
-    document.getElementById("screen").value =displayValue;
+    document.getElementById("screen").value = displayValue;
 }
