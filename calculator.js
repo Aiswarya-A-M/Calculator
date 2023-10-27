@@ -1,6 +1,5 @@
 let displayValue = '';
 let resultShown = false;
-let decimal=false;
 function screenDisplay(value) {
     const display = document.getElementById("screen");
     const length=displayValue.length - 1;
@@ -33,13 +32,11 @@ function screenDisplay(value) {
                 }
             else{
                 count+=1;
-            }
-                    
+            }           
         }
         if(count!==0){
             return;
         }
-            
     }
     if (value === '=' && displayValue) {
         const result = eval(displayValue);
@@ -54,7 +51,8 @@ function screenDisplay(value) {
             resultShown = true;
         }
     
-    }else if (value === 'clc') {
+    }
+    else if (value === 'clc') {
         clearDisplay();
         resultShown = false;
     }
@@ -73,7 +71,6 @@ function screenDisplay(value) {
 function clearDisplay() {        //to clear the display.
     displayValue = '';
     document.getElementById("screen").value = '';
-    
 }
 
 function calculateResult() {              //to calculate result.
