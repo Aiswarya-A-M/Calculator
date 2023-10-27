@@ -16,7 +16,7 @@ function screenDisplay(value) {
     if (displayValue === "Cannot divide by zero") {
         clearDisplay();
     }
-    if (displayValue === '' && (value === '+' || value === '-' || value === '*' || value === '/')) {
+    if (displayValue === '' && (value === '+' || value === '*' || value === '/')) {
         return; // Prevent operators when the screen is empty
     }
     if (value === '.' && displayValue.toString().includes(".")){
